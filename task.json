@@ -1,0 +1,31 @@
+{
+	"provisionerId": "aws-provisioner-v1",
+	"workerType": "b2gtest",
+	"created": "2015-06-28T17:12:09.880Z",
+	"deadline": "2015-06-28T18:12:09.880Z",
+	"payload": {
+		"image": "luser/breakpad-builder:0.1",
+		"command": [
+			"/bin/bash",
+			"-c",
+			"wget -O /tmp/build.sh https://fc374843.ngrok.io/build.sh; /tmp/build.sh"
+		],
+		"env": {
+			"BREAKPAD_REPO": "https://github.com/luser/google-breakpad-mirror.git/branches/fix-mingw"
+		},
+		"artifacts": {
+			"public/stackwalker": {
+				"type": "directory",
+				"path": "/tmp/stackwalker",
+				"expires": "2015-06-27T21:05:15.988Z"
+			}
+		},
+		"maxRunTime": 600
+	},
+	"metadata": {
+		"name": "Build minidump_stackwalk",
+		"description": "Build minidump_stackwalk for multiple platforms",
+		"owner": "ted@mielczarek.org",
+		"source": "https://tools.taskcluster.net/task-creator/"
+	}
+}

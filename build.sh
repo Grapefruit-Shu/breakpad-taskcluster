@@ -1,10 +1,12 @@
 #!/bin/bash
 set -v -e -x
 
-cd /tmp
+: BREAKPAD_REPO        ${BREAKPAD_REPO:=https://google-breakpad.googlecode.com/svn/trunk/}
+: BREAKPAD_REV         ${BREAKPAD_REV:=HEAD}
 
 function build()
 {
+    cd /tmp
     local platform=$1
     local configure_args=$2
     local make_args=$3
@@ -33,7 +35,8 @@ function linux32()
 
 function macosx()
 {
-    python tooltool.py --manifest=macosx-sdk.manifest fetch
+    cd /tmp
+    python tooltool.py --manifest=macosx-sdk.manifest --url=http://relengapi fetch
     tar xjf MacOSX10.7.sdk.tar.bz2
     local FLAGS="-target x86_64-apple-darwin10 -mlinker-version=136 -B /tmp/cctools/bin -isysroot /tmp/MacOSX10.7.sdk"
     export CC="clang $FLAGS"
@@ -53,12 +56,16 @@ function win32()
     build win32 "--host=i686-w64-mingw32"
 }
 
+cd /tmp
 mkdir -p stackwalker
 if ! test -d google-breakpad; then
-    svn checkout https://google-breakpad.googlecode.com/svn/trunk/ google-breakpad
+    svn checkout -r $BREAKPAD_REV $BREAKPAD_REPO google-breakpad
+else
+    (cd google-breakpad; svn checkout -r $BREAKPAD_REV)
 fi
+(cd google-breakpad; svn info)
 linux64
 linux32
 #TODO
 #macosx
-#win32
+win32
