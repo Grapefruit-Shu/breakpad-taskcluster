@@ -1,23 +1,23 @@
 {
     "provisionerId": "aws-provisioner-v1",
     "workerType": "android-api-11",
-    "created": "2015-07-02T18:18:53.880Z",
-    "deadline": "2015-07-03T18:53:09.880Z",
+    "created": "{task_created}",
+    "deadline": "{task_deadline}",
     "payload": {
         "image": "luser/breakpad-builder:0.2",
         "command": [
             "/tmp/build.sh"
         ],
         "env": {
-            "GECKO_REPOSITORY": "https://hg.mozilla.org/users/tmielczarek_mozilla.com/mc",
-            "GECKO_HEAD_REV": "245f304590a3",
-            "BREAKPAD_REPO": "https://github.com/luser/google-breakpad-mirror.git/branches/fix-mingw"
+            "GECKO_REPOSITORY": "{gecko_repository}",
+            "GECKO_HEAD_REV": "{gecko_rev}",
+            "BREAKPAD_REPO": "{breakpad_repository}"
         },
         "artifacts": {
             "public/stackwalker": {
                 "type": "directory",
                 "path": "/tmp/stackwalker",
-                "expires": "2015-06-27T21:05:15.988Z"
+                "expires": "{artifacts_expires}"
             }
         },
         "features": {
@@ -32,6 +32,6 @@
         "name": "Build minidump_stackwalk",
         "description": "Build minidump_stackwalk for multiple platforms",
         "owner": "ted@mielczarek.org",
-        "source": "https://tools.taskcluster.net/task-creator/"
+        "source": "https://github.com/luser/breakpad-taskcluster"
     }
 }

@@ -5,5 +5,5 @@ RUN apt-get clean && apt-get update && apt-get install -qq mingw-w64 git build-e
 ADD build.sh /tmp/
 ADD cctools.tar.gz /tmp/
 ADD macosx-sdk.manifest /tmp/
-ADD https://raw.githubusercontent.com/mozilla/build-tooltool/master/tooltool.py /tmp/
+ADD tooltool.py /tmp/
 RUN chmod +x /tmp/tooltool.py /tmp/build.sh
