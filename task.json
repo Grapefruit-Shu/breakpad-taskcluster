@@ -4,7 +4,7 @@
     "created": "{task_created}",
     "deadline": "{task_deadline}",
     "payload": {
-        "image": "luser/breakpad-builder:0.2",
+        "image": "luser/breakpad-builder:0.3",
         "command": [
             "/tmp/build.sh"
         ],

@@ -76,10 +76,11 @@ def wait_for_task(queue, task_id, initial_wait=150):
         res = queue.status(task_id)
         state = res['status']['state']
         if state == 'completed':
+            print('done')
             return len(res['status']['runs']) - 1
         if state in ('failed', 'exception'):
             raise Exception('Task failed')
-        print('.')
+        sys.stdout.write('.')
         time.sleep(10)
 
 def fetch_artifact(queue, task_id, run_id, name, dest_dir):
