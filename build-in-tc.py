@@ -15,6 +15,7 @@ import datetime
 import json
 import os
 import shutil
+import sys
 import taskcluster
 import tempfile
 import time
