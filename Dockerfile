@@ -2,7 +2,6 @@ FROM ubuntu:15.10
 MAINTAINER Ted Mielczarek <ted@mielczarek.org>
 
 RUN apt-get clean && dpkg --add-architecture i386 && apt-get update && apt-get install -qq mingw-w64 git build-essential autoconf subversion gcc-multilib g++-multilib clang wget mercurial libcurl4-openssl-dev libstdc++6:i386
-RUN apt-get install -qq libc++-dev
 ADD build.sh /tmp/
 ADD cctools.tar.gz /tmp/
 ADD macosx-sdk.manifest /tmp/
