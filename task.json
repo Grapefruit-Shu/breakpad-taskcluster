@@ -1,17 +1,16 @@
 {
     "provisionerId": "aws-provisioner-v1",
-    "workerType": "android-api-11",
+    "workerType": "b2gtest",
     "created": "{task_created}",
     "deadline": "{task_deadline}",
     "payload": {
-        "image": "luser/breakpad-builder:0.5",
+        "image": "luser/breakpad-builder:0.7",
         "command": [
             "/tmp/build.sh"
         ],
         "env": {
             "GECKO_REPOSITORY": "{gecko_repository}",
-            "GECKO_HEAD_REV": "{gecko_rev}",
-            "BREAKPAD_REPO": "{breakpad_repository}"
+            "GECKO_HEAD_REV": "{gecko_rev}"
         },
         "artifacts": {
             "public/stackwalker": {

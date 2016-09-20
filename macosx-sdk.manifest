@@ -1,9 +1,10 @@
 [
 {
-"size": 47355784, 
+"size": 35215976, 
 "visibility": "internal", 
-"digest": "3e90d454be9aafc017817236454d50fafea2ee0c944b247420929b78f46517a5f5d7b2769b8e39e312ef00b195346e4ca15d5d3a29593982d94eabf6de389e86", 
+"digest": "8be736545ddab25ebded188458ce974d5c9a7e29f3c50d2ebfbcb878f6aff853dd2ff5a3528bdefc64396a10101a1b50fd2fe52000140df33643cebe1ea759da", 
 "algorithm": "sha512", 
-"filename": "MacOSX10.6.sdk.tar.bz2"
+"unpack": true,
+"filename": "MacOSX10.7.sdk.tar.bz2"
 }
 ]

@@ -6,6 +6,13 @@ ncpu=`grep -c ^processor /proc/cpuinfo`
 
 cd /tmp
 
+# install depot_tools to save time for later runs
+git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
+
+# fetch a newer clang from tooltool
+python tooltool.py -m clang.manifest fetch
+rm clang.tar.xz
+
 # build a 32-bit libcurl
 wget https://github.com/bagder/curl/releases/download/curl-7_44_0/curl-7.44.0.tar.bz2
 tar xjf curl-7.44.0.tar.bz2

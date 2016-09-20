@@ -161,9 +161,10 @@ def main():
                         help='URL to the Gecko repository from which to use the minidump_stackwalk build script')
     parser.add_argument('--gecko-rev', default='default',
                         help='Revision of the Gecko repository to use')
-    parser.add_argument('--breakpad-repository', default='https://google-breakpad.googlecode.com/svn/trunk/',
-                        help='URL to the google-breakpad repository to build')
-    parser.add_argument('--breakpad-rev', default='HEAD',
+    # This is a pain to implement with gclient
+    #parser.add_argument('--breakpad-repository', default='https://google-breakpad.googlecode.com/svn/trunk/',
+    #                    help='URL to the google-breakpad repository to build')
+    parser.add_argument('--breakpad-rev', default='master',
                         help='Revision of the google-breakpad repository to use')
     parser.add_argument('--task', help='Use an existing task')
 
